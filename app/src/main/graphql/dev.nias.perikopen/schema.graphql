@@ -1,0 +1,17 @@
+query FeedQuery($tanggal: String!) {
+    getUpcomingEventGroup(date: $tanggal) {
+        id
+        name
+        perikopens {
+            id
+            colorCode
+            date
+            weekName
+        }
+    }
+}
+
+
+fragment HomeEvent on EventGroup {
+    name
+}

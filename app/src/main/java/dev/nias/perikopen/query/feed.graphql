@@ -1,0 +1,11 @@
+query getUpcomingEventGroup(date: "S") {
+    id
+    name
+    perikopens {
+      id
+      colorCode
+      date
+      weekName
+    }
+  }
+}

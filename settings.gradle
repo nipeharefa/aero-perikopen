@@ -1,0 +1,2 @@
+rootProject.name='Perikopen'
+include ':app'
