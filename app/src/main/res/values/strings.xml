@@ -2,4 +2,5 @@
     <string name="app_name">Perikopen</string>
     <string name="home_upcoming_event">Ibadah Terdekat</string>
     <string name="appbar_scrolling_view_behavior">scroll</string>
+    <string name="disclaimer">Seluruh data perikopen yang ditampilkan merupakan data dari Buku Perikopen BNKP Tahun 2020 yang dikeluarkan oleh LPLG BNKP.</string>
 </resources>
