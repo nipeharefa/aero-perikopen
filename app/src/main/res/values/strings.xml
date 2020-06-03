@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Perikopen</string>
     <string name="home_upcoming_event">Ibadah Terdekat</string>
+    <string name="appbar_scrolling_view_behavior">scroll</string>
 </resources>

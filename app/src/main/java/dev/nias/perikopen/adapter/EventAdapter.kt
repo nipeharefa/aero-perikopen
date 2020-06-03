@@ -14,10 +14,10 @@ import dev.nias.perikopen.model.HomeEvent
 class EventAdapter(var items : MutableList<HomeEvent>) : RecyclerView.Adapter<EventAdapter.MyViewHolder>() {
     class MyViewHolder : RecyclerView.ViewHolder {
         lateinit var weekName : TextView
-        lateinit var perikopenAdapter: PerikopenEventAdapter
         lateinit var rvPerikopen: RecyclerView
         constructor(v : View) : super(v) {
             weekName = v.findViewById(R.id.home_rv_events_content_week_name)
+            rvPerikopen = v.findViewById(R.id.rv_home_perikopen)
         }
     }
 
@@ -35,16 +35,11 @@ class EventAdapter(var items : MutableList<HomeEvent>) : RecyclerView.Adapter<Ev
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val rv : RecyclerView = holder.itemView.findViewById(R.id.rv_home_perikopen)
-
         holder.weekName.text = items.get(position).name
-        holder.perikopenAdapter = PerikopenEventAdapter(items.get(position).perikopens)
+        val perikopenAdapter = PerikopenEventAdapter(items.get(position).perikopens)
 
-
-        rv.adapter = holder.perikopenAdapter
-        rv.layoutManager = LinearLayoutManager(holder.itemView.context)
-
-        holder.rvPerikopen = rv
+        holder.rvPerikopen.adapter = perikopenAdapter
+        holder.rvPerikopen.layoutManager = LinearLayoutManager(holder.itemView.context)
     }
 
 }

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -17,19 +16,24 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:gravity="center"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp">
-                <TextView
-                    android:text="Logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
+                <ImageView
+                    android:background="@drawable/ic_p_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="30dp" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnDisclaimer"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/ic_disclaimer"
                     android:layout_alignParentRight="true"
-                    android:text="Disclaimer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
@@ -56,6 +60,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:overScrollMode="never"
             android:id="@+id/home_rv_events"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

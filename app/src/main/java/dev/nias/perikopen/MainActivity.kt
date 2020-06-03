@@ -1,7 +1,9 @@
 package dev.nias.perikopen
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +11,7 @@ import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
+import dev.nias.perikopen.activity.Disclaimer
 import dev.nias.perikopen.adapter.EventAdapter
 import dev.nias.perikopen.model.HomeEvent
 import dev.nias.perikopen.model.Perikopen
@@ -32,6 +35,12 @@ class MainActivity : AppCompatActivity(), OnSuccessResponse {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //actionbar
+        val actionbar = supportActionBar
+        actionbar?.let {
+            it.setDisplayHomeAsUpEnabled(false)
+        }
 
         upcomingEvents = mutableListOf()
 
@@ -92,6 +101,14 @@ class MainActivity : AppCompatActivity(), OnSuccessResponse {
                     Log.e("MainActivity", e.message)
                 }
             })
+
+        val imgDisclaimerBtn : ImageButton = findViewById(R.id.imgBtnDisclaimer)
+
+        imgDisclaimerBtn.setOnClickListener {
+            Log.i("Main", "img")
+            val i : Intent = Intent(it.context, Disclaimer::class.java)
+            it.context.startActivity(i)
+        }
     }
 
     override fun onSuccessResponse(response: Response<FeedQuery.Data>) {

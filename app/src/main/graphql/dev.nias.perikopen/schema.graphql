@@ -12,6 +12,42 @@ query FeedQuery($tanggal: String!) {
 }
 
 
+query FindOnePerikopenById($perikopenId: String!) {
+    findOneById(id: $perikopenId) {
+        ...PerikopenDetail
+    }
+}
+
+fragment PerikopenDetail on Perikopen {
+    id
+    weekName
+    date
+    eventGroup {
+        id
+        name
+    }
+    readList {
+        id
+        bookName
+        bookValue
+        displayOrder
+    }
+    kidungJemaat {
+        ...NameParts
+    }
+    bukuZinuno {
+        ...NameParts
+    }
+    bukuNaino {
+        ...NameParts
+    }
+}
+
 fragment HomeEvent on EventGroup {
     name
+}
+
+fragment NameParts on PerikopenSong {
+    id
+    songNumber
 }
