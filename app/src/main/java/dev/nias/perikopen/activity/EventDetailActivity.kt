@@ -1,10 +1,8 @@
 package dev.nias.perikopen.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,6 +44,7 @@ class EventDetailActivity : AppCompatActivity() {
         }
 
         apolloClient = GraphQL.getClient()
+//        Log.d("event", apolloClient)
 
         val intent = getIntent()
         val perikopenId = intent.getStringExtra("perikopenId")
@@ -144,7 +143,7 @@ class EventDetailActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(e: ApolloException) {
-                   Log.i("event", "gagal")
+                   Log.i("event", e.toString())
                 }
             })
         }

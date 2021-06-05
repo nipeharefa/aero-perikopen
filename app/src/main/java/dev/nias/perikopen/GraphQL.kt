@@ -8,7 +8,7 @@ object GraphQL {
     fun getClient(): ApolloClient {
         val cacheFactory = LruNormalizedCacheFactory(EvictionPolicy.builder().maxSizeBytes(10 * 1024).build())
         val client = ApolloClient.builder()
-            .serverUrl("https://perikopen-gql-v1.nias.dev/query")
+            .serverUrl("https://perikopen-gql-v2.nias.dev/query")
             .normalizedCache(cacheFactory)
             .build()
 

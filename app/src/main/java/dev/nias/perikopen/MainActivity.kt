@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity(), OnSuccessResponse {
         rvUpcomingEvents.layoutManager = LinearLayoutManager(this)
 
         val client = ApolloClient.builder()
-            .serverUrl("https://perikopen-gql-v1.nias.dev/query")
+            .serverUrl("https://perikopen-gql-v2.nias.dev/query")
             .build()
 
-        val a = FeedQuery("2020-05-29")
+        val a = FeedQuery("2021-01-31")
 
         client
             .query(a)
